@@ -32,5 +32,12 @@ POST /api/cart/remove/{cartID} - to remove product from the cart
 * Show checkout option
 * Integrate a payment gateway 
 
+## Test strategy
+I feel that testing and development should go hand-in-hand. For evry endpoint or a feature developed, there must be 
+some logic that should be writen to validate the code writen so far. Taking up unit testing in early stages of the project is
+one of the best ways to nutrure the culture and quality of the source. I have included a sample unit test for add-to-cart API in the server implementation. We can add similar tests for other API endpoints as well. 
+
+Speaking w.r.t scope of this assignment TDD seems like a better approch because we have separated functionality into different endpoints. We can also apply a combination of both the stratergies, that should be more than enough. Through TDD alone it would be easy to attain 100% code coverage. 
+
  ## UI Demo
  ![Demo UI Image](https://github.com/AdiUser/spring-boot-react-product-cart/blob/master/cart-client/public/ui-demo.png)

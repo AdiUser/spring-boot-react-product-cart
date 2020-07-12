@@ -23,24 +23,22 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest
 @AutoConfigureMockMvc
 class CartApplicationTests {
-	
+
 	@Autowired
 	private MockMvc mockMvc;
-	
+
 	@Test
 	public void addProductToCart() throws Exception {
 		ObjectMapper objMapper = new ObjectMapper();
 		Product p = new Product("1", 1, 89);
 		String productJSON = objMapper.writeValueAsString(p);
-		
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/cart/add/XZY")
-					.content(productJSON)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/cart/add/XZY").content(productJSON)
+				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
-		
+
 		String expected = productJSON;
-		String actual   = result.getResponse().getContentAsString(); 
+		String actual = result.getResponse().getContentAsString();
 		JSONAssert.assertEquals(expected, actual, false);
 	}
 
