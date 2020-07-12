@@ -5,9 +5,6 @@ class AddToCartBtn extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            isProductInCart: false
-        }
     }
     render() {
         return(

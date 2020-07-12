@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Cookies from 'universal-cookie'
 import ToolBar from './Components/ToolBar'
-import { API_URL } from './Constants/Endpoints'
+import { API_URL, GET_CART } from './Constants/Endpoints'
 import Loader from './Components/Loader'
 import ProductGrid from './Components/ProductGrid'
 import Page from './Components/Page'
@@ -29,7 +29,7 @@ class App extends React.Component {
       cookie.set('__cart', cartID)
     }
     else {
-      // check is there are any products in the exixting cart
+      // check is there are any products in the existing cart
       
     }
     
@@ -44,13 +44,49 @@ class App extends React.Component {
 
   componentDidMount() {
     // make API call to fetch the list of prducts
-    fetch(API_URL)
-      .then(res => res.json())
+    fetch(API_URL).then(res => res.json())
       .then((result) => {
-        this.setState({
-          isLoaded: true,
-          items: result
-        })
+
+        // make call to get saved cart(if any)
+        console.log(GET_CART.replace('{cartID}', this.state.cartID));
+        fetch(GET_CART.replace('{cartID}', this.state.cartID), {
+            credentials: 'include',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            }
+        }).then(res => res.json())
+          .then((cart) => {
+            
+            // mark products that are already present in the cart
+            result.forEach((product, i) => {
+              result[i].inCart = false
+              result[i].price = 30 * Math.random()
+              result[i].count = 0
+
+              cart.forEach((cartProduct, j) => {
+                console.log(cartProduct.id, product.id, cartProduct.id === product.id)
+                if(cartProduct.id === product.id) {
+                  result[i].inCart = true
+                  result[i].count = cartProduct.count
+                  console.log(result[i].count)
+                }
+              })
+            })
+
+            this.setState({
+              isLoaded: true,
+              items: result
+            })
+
+            console.log("first call", cart, result)
+
+          }, (error) => {
+            // handle API crash
+          })
+
+
+     
       }, (error) => {
         this.setState({
           error: error
@@ -61,7 +97,10 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        {this.state.isLoaded ? <Page items={this.state.items}/> : <Loader />}
+        {this.state.isLoaded ? <Page 
+          items={this.state.items}
+          cartID={this.state.cartID}
+          /> : <Loader />}
       </div>
     );
   }

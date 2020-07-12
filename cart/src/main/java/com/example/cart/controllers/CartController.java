@@ -45,6 +45,7 @@ public class CartController {
 			List<Product> items = new ArrayList<Product>();
 			items.add(product);
 			session.setAttribute(cartID, items);
+			System.out.println("CART WAS EMPTY, ADDED NEW PRODUCT " + product.getId());
 		}
 		else {
 			// cart  already has some products
@@ -58,6 +59,7 @@ public class CartController {
 					cart.set(i, p);
 					isProductAdded = true;
 					product = p;
+					System.out.println("INCREASED COUNT OF PRODUCT " + product.getId());
 					break;
 				}
 			}
@@ -66,6 +68,7 @@ public class CartController {
 				// product is not present in the cart
 				// add new product
 				cart.add(product);
+				System.out.println("ADDED PRODUCT TO ALREADY PRESENT CART " + product.getId());
 			}
 		}
 		
