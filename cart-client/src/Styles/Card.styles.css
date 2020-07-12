@@ -1,0 +1,79 @@
+
+.card:hover .add-to-cart {
+    display: block;
+}
+
+.card:hover .add-detele-product {
+    display: block;
+}
+.product-img {
+    height: 100%;
+    width: 100%;
+}
+.card-wrap, .img{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.btns {
+    width: -webkit-fill-available;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: #1f1e1e2e;
+    z-index: 999;
+}
+.add-to-cart > span {
+    font-size: 1em;
+}
+.btns > .add-to-cart {
+    display: none;
+    text-align: right;
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.btns > .add-to-cart:hover {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btns > .add-detele-product {
+    color: #fff;
+    text-align: right;
+    padding: 5px 10px;
+}
+
+.add-detele-product > span {
+    padding: 0 8px;
+}
+
+.add-detele-product > .count > .num {
+    padding: 0 5px;
+    font-size: 1.2em;
+}
+.add-detele-product > .add,
+.add-detele-product > .delete  {
+    font-size: 1.2em;
+    border: 1px solid #fff;
+    cursor: pointer;
+    margin: 0 1px;
+}
+
+.add-detele-product > .delete {
+    border-right: none;
+}
+.add-detele-product > .delete:hover,
+.add-detele-product > .add:hover {
+    background-color: #030ae2ad;
+}
+.add-detele-product > .add {
+    border-left: none;
+}
+
+.add-detele-product > .add {
+    border-left: none;
+}

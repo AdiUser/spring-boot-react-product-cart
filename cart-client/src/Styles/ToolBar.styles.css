@@ -1,0 +1,44 @@
+
+.toolbar {
+    background-color: white;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    box-shadow: 0 8px 3px -8px #999;
+    
+}
+
+.left {
+    margin: 10px 0 0px 100px;
+    height: fit-content;
+}
+
+.right {
+    margin: 25px 100px 0px 0px;
+    height: fit-content;
+}
+
+.brand-logo {
+    max-height: 70px;
+}
+
+.toolbar-btn {
+    padding: 9px 25px;
+    background-color: #fff;
+    margin: 0 15px;
+    border-radius: 4px;
+    border-image-slice: 1;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+}
+.toolbar-btn:hover {
+    cursor: pointer;
+}
+.toolbar-btn:nth-of-type(2) {
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+}
+
+.toolbar-btn:nth-of-type(1) {
+    border-image-source: linear-gradient(to left, #00C853, #B2FF59);
+}

@@ -1,0 +1,27 @@
+import React from 'react'
+import ToolBarButton from './ToolBarButton'
+import { LOGO_PATH } from '../Constants/Paths'
+import '../Styles/ToolBar.styles.css'
+
+class ToolBar extends React.Component {
+
+    render() {
+        return (
+            <header className = 'toolbar'>
+                <div className = 'logo left'>
+                    <img src = {LOGO_PATH}  className = 'brand-logo' alt = 'img'></img>
+                </div>
+                <div className = 'buttons right'>
+                    <ToolBarButton 
+                        text = 'Login'
+                        />
+                    <ToolBarButton
+                        text = 'Register'
+                    />
+                </div>
+            </header>
+        )
+    }
+}
+
+export default ToolBar
