@@ -45,7 +45,6 @@ public class CartController {
 			List<Product> items = new ArrayList<Product>();
 			items.add(product);
 			session.setAttribute(cartID, items);
-			System.out.println("CART WAS EMPTY, ADDED NEW PRODUCT " + product.getId());
 		}
 		else {
 			// cart  already has some products
