@@ -9,12 +9,12 @@
 }
 
 .left {
-    margin: 10px 0 0px 100px;
+    margin: 0px 0 0px 100px;
     height: fit-content;
 }
 
 .right {
-    margin: 25px 100px 0px 0px;
+    margin: 20px 100px 0px 0px;
     height: fit-content;
 }
 

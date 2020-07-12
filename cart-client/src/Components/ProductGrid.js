@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import '../Styles/ProductGrid.styles.css'
 
 class ProductGrid extends React.Component {

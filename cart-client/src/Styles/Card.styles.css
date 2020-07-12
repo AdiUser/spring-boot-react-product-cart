@@ -10,9 +10,9 @@
     height: 100%;
     width: 100%;
 }
+
 .card-wrap, .img{
     position: relative;
-    overflow: hidden;
     height: 100%;
     width: 100%;
 }
@@ -25,13 +25,18 @@
     right: 0;
     bottom: 0;
     color: #fff;
-    background-color: #1f1e1e2e;
+    background-color: #1f1e1e40;
     z-index: 999;
 }
 .add-to-cart > span {
     font-size: 1em;
+    background-color: transparent;
 }
 
+.add-detele-product > button{
+    background-color: transparent;
+    color: #fff;
+}
 .p-btns {
     height: fit-content;
     margin: 5px 0 0 0;
@@ -88,7 +93,7 @@
 .product-info {
     text-align: left;
     padding: 2px 0 2px 5px;
-    max-width: 70%;
+    max-width: 50%;
     
 }
 .product-info > .name {

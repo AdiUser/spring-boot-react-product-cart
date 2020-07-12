@@ -1,11 +1,7 @@
 import React from 'react'
-import { T_ADD_PRODUCT, T_DELETE_PRODUCT} from '../Constants/Identifiers'
 
 class AddToCartBtn extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
     render() {
         return(
             <div 

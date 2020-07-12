@@ -6,11 +6,6 @@ import '../Styles/ToolBar.styles.css'
 
 class ToolBar extends React.Component {
 
-    constructor(props) {
-        super(props)
-        
-    }
-
     render() {
         console.log('tootlbar render')
         return (

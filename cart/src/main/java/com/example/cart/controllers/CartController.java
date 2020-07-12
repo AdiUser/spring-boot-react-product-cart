@@ -59,7 +59,6 @@ public class CartController {
 					cart.set(i, p);
 					isProductAdded = true;
 					product = p;
-					System.out.println("INCREASED COUNT OF PRODUCT " + product.getId());
 					break;
 				}
 			}
@@ -68,7 +67,6 @@ public class CartController {
 				// product is not present in the cart
 				// add new product
 				cart.add(product);
-				System.out.println("ADDED PRODUCT TO ALREADY PRESENT CART " + product.getId());
 			}
 		}
 		

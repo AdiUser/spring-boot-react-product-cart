@@ -13,23 +13,23 @@ class AddDeleteBtn extends React.Component {
     render() {
         return (
             <div className="add-detele-product">
-                <span 
+                <button 
                     className = 'delete'
                     onClick = {this.props.action.bind(this, 1, T_DELETE_PRODUCT)}
                 >
                 &#45;
-                </span>
+                </button>
                 <span className='count'>
                     <span className='num'>
                         {this.props.count}
                     </span>
                 </span>
-                <span 
+                <button 
                     className='add'
                     onClick={this.props.action.bind(this, 1, T_ADD_PRODUCT)}
                 >
                 &#43;
-                </span>
+                </button>
             </div>
         )
     }

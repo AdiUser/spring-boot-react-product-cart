@@ -3,7 +3,6 @@ import '../Styles/Card.styles.css'
 import AddDeleteBtn from './AddDeleteBtn'
 import AddToCartBtn from './AddToCartBtn'
 import { T_ADD_PRODUCT } from '../Constants/Identifiers'
-import { API_URL, GET_CART, ADD_TO_CART, REMOVE_FROM_CART } from '../Constants/Endpoints'
 import { removeProduct, addProduct } from '../Utility/FetchCalls'
 
 class Card extends React.Component {
@@ -22,8 +21,7 @@ class Card extends React.Component {
 
     markProductInCart() {
         // add product in cart and mark the new state
-        console.log(ADD_TO_CART.replace('{cartID}', this.props.cartID))
-        let addProductToCart = addProduct(this.props)
+        addProduct(this.props)
             .then(res => res.json())
             .then((result) => {
                 if(result.error)
@@ -61,7 +59,7 @@ class Card extends React.Component {
         }
 
         if(type === T_ADD_PRODUCT) {
-            let addProductToCart = addProduct(this.props)
+            addProduct(this.props)
                 .then(res => res.json())
                 .then((result) => {
                     if (result.error)
@@ -86,7 +84,7 @@ class Card extends React.Component {
         }
         else {
 
-            let removeProductFromCart = removeProduct(this.props)
+            removeProduct(this.props)
                 .then(res => res.json())
                 .then((result) => {
                     if (result.error)
@@ -119,7 +117,6 @@ class Card extends React.Component {
         return (
             <div className='card' style={{
                 height: `${this.props.height}px`,
-                border: '1px solid'
             }}>
                 <div className='card-wrap'>
                     <div className='img'>
