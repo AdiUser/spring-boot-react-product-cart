@@ -6,6 +6,13 @@ public class Product {
 	private int count;
 	private float price;
 	
+	public Product(String id, int count, float price) {
+		super();
+		this.id = id;
+		this.count = count;
+		this.price = price;
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -24,13 +31,12 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", count=" + count + ", price=" + price + ", getId()=" + getId() + ", getCount()="
-				+ getCount() + ", getPrice()=" + getPrice() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+		return "Product [id=" + id + ", count=" + count + ", price=" + price + "]";
 	}
+	
 	
 	
 }

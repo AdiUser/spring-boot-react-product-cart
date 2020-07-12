@@ -6,7 +6,7 @@ This project uses `https://picsum.photos/v2/list?page=1&limit=20` to fetch the d
 I'm showing images and author names in the UI with random prices (I have modified the data to add random prices)
 
 ## Cart APIs
-Once you hover any product you will see a `+ Add to cart` button, clicking on it will add the product to your cart.
+Once you hover over any product you will see a `+ Add to cart` button, clicking on it will add the product to your cart.
 Once you have added one item for that product, there will be a counter visible to add or remove quantity.
 Following APIs are used to add / remove products from the cart
 
