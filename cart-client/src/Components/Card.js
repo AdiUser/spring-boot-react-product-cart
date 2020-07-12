@@ -115,6 +115,11 @@ class Card extends React.Component {
                     console.log(result);
                     if (result.error)
                         alert(result.error)
+                    else {
+                        this.setState({
+                            const: newCount
+                        })
+                    }
                 }, (error) => {
                     // handle api crash
                 })
@@ -135,15 +140,23 @@ class Card extends React.Component {
                     <div className='img'>
                         <img className='product-img' src={this.props.product.download_url+'.webp'} alt='product-images' />
                     </div>
-                    <div className='btns'>
-                       {this.state.isProductInCart ? <AddDeleteBtn  
-                            productID = {this.props.product.id}
-                            count = {this.state.count}
-                            action = {this.modifyProductInCart}
-                        /> : <AddToCartBtn  
-                                productID = {this.props.product.id}
-                                action = {this.markProductInCart}
-                        />}
+                    <div className='info btns'>
+                        <div className='product-info'>
+                            <div className='name'>{this.props.product.author}</div>
+                            <div className='price'>${this.props.product.price}</div>
+                        </div>
+                        <div className='p-btns'>
+                            { 
+                                this.state.isProductInCart ? <AddDeleteBtn  
+                                    productID = {this.props.product.id}
+                                    count = {this.state.count}
+                                    action = {this.modifyProductInCart}
+                                /> : <AddToCartBtn  
+                                        productID = {this.props.product.id}
+                                        action = {this.markProductInCart}
+                                />
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

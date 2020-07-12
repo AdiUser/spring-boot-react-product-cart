@@ -4,7 +4,7 @@ public class Product {
 	
 	private String id;
 	private int count;
-	private int price;
+	private float price;
 	
 	public String getId() {
 		return id;
@@ -18,10 +18,10 @@ public class Product {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	

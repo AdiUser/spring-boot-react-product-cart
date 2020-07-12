@@ -61,7 +61,7 @@ class App extends React.Component {
             // mark products that are already present in the cart
             result.forEach((product, i) => {
               result[i].inCart = false
-              result[i].price = 30 * Math.random()
+              result[i].price = (30 * Math.random()).toFixed(2)
               result[i].count = 0
 
               cart.forEach((cartProduct, j) => {
