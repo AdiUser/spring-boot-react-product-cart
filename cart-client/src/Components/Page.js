@@ -7,7 +7,7 @@ import Card from './Card'
 class Page extends React.Component {
 
     render() {
-        console.log(this.props.items)
+        console.log(this.props)
         return(
             <div className='page'>
                 <ToolBar />

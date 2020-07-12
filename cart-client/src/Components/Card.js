@@ -29,7 +29,6 @@ class Card extends React.Component {
 
         let newCount = type === T_ADD_PRODUCT ? this.state.count + items : this.state.count - items
         
-
         // if item count is zero or less, remove that product from the cart
         // and show add-to-cart button on that product's card
         if(newCount <= 0) {
