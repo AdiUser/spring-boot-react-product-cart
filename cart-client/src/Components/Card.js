@@ -4,13 +4,12 @@ import AddDeleteBtn from './AddDeleteBtn'
 import AddToCartBtn from './AddToCartBtn'
 import { T_ADD_PRODUCT } from '../Constants/Identifiers'
 import { API_URL, GET_CART, ADD_TO_CART, REMOVE_FROM_CART } from '../Constants/Endpoints'
-
+import { removeProduct, addProduct } from '../Utility/FetchCalls'
 
 class Card extends React.Component {
 
     constructor(props) {
         super(props)
-        console.log(this.props)
 
         this.markProductInCart = this.markProductInCart.bind(this)
         this.modifyProductInCart = this.modifyProductInCart.bind(this)
@@ -22,24 +21,11 @@ class Card extends React.Component {
     }
 
     markProductInCart() {
-        console.log('I am called')
         // add product in cart and mark the new state
         console.log(ADD_TO_CART.replace('{cartID}', this.props.cartID))
-        fetch(ADD_TO_CART.replace('{cartID}', this.props.cartID), {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                id: this.props.product.id,
-                count: 1, 
-                price: this.props.product.price
-            }),
-        }).then(res => res.json())
+        let addProductToCart = addProduct(this.props)
+            .then(res => res.json())
             .then((result) => {
-                console.log(result);
                 if(result.error)
                     alert(result.error)
                 else {
@@ -47,6 +33,12 @@ class Card extends React.Component {
                         isProductInCart: true,
                         count: 1
                     })
+
+                    this.props.updateCartIcon({
+                        id: this.props.product.id,
+                        count: 1,
+                        price: this.props.product.price
+                    });
                 }
                 
             }, (error) => {
@@ -69,27 +61,24 @@ class Card extends React.Component {
         }
 
         if(type === T_ADD_PRODUCT) {
-            fetch(ADD_TO_CART.replace('{cartID}', this.props.cartID), {
-                method: 'POST',
-                credentials: 'include',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id: this.props.product.id,
-                    count: 1,
-                    price: this.props.product.price
-                }),
-            }).then(res => res.json())
+            let addProductToCart = addProduct(this.props)
+                .then(res => res.json())
                 .then((result) => {
-                    console.log(result);
                     if (result.error)
                         alert(result.error)
                     else {
                         this.setState({
                             const: newCount
                         })
+
+                        // send data for updating the cart icon in the 
+                        // toolbar
+                        this.props.updateCartIcon({
+                            id: this.props.product.id,
+                            count: 1,
+                            price: this.props.product.price
+                        });
+
                     }
                 }, (error) => {
                     // handle api crash
@@ -97,31 +86,27 @@ class Card extends React.Component {
         }
         else {
 
-            let url = REMOVE_FROM_CART.replace('{cartID}', this.props.cartID).replace('{productID}', this.state.productID)
-            fetch(url, {
-                method: 'POST',
-                credentials: 'include',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id: this.props.product.id,
-                    count: 1,
-                    price: this.props.product.price
-                }),
-            }).then(res => res.json())
+            let removeProductFromCart = removeProduct(this.props)
+                .then(res => res.json())
                 .then((result) => {
-                    console.log(result);
                     if (result.error)
                         alert(result.error)
                     else {
+                        console.log('deleted')
                         this.setState({
                             const: newCount
                         })
+                        // send data for updating the cart icon in the 
+                        // toolbar
+                        this.props.updateCartIcon({
+                            id: this.props.product.id,
+                            count: -1,
+                            price: this.props.product.price
+                        });
                     }
                 }, (error) => {
                     // handle api crash
+                    console.log(error)
                 })
         }
         // update new product count

@@ -12,13 +12,17 @@ class ProductGrid extends React.Component {
         }
     }
 
+    shouldComponentUpdate() {
+      return false;
+    }
+
     render() {
         const columnWrapper = []
         const result = []
 
         for(let i = 0; i < this.props.columns; i++)
             columnWrapper[`column${i}`] = []
-            
+
         if(this.props.children instanceof Array) {
             for(let i = 0; i < this.props.children.length; i++) {
                 const colIndex = i % this.props.columns

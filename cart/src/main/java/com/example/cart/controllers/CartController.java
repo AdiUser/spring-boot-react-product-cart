@@ -76,7 +76,7 @@ public class CartController {
 	}
 	
 	@PostMapping("/api/cart/remove/{cartID}/{productID}")
-	public void removeProductFromCart(@PathVariable String cartID, @PathVariable String productID,
+	public boolean removeProductFromCart(@PathVariable String cartID, @PathVariable String productID,
 				HttpSession session) {
 		
 		@SuppressWarnings("unchecked")
@@ -104,6 +104,8 @@ public class CartController {
 				}
 			}
 		}
+		
+		return true;
 	}
 
 }
