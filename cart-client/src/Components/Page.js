@@ -18,9 +18,9 @@ class Page extends React.Component {
                             {this.props.items.map((key, i) => {
                                 const height = 200 + Math.ceil(Math.random() * 300);
                                 return <Card 
-                                        height={height} 
-                                        key={i}
-                                        product={key}
+                                            height={height} 
+                                            key={i}
+                                            product={key}
                                         />
                             })}
                         </ProductGrid>
