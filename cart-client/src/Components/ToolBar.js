@@ -7,7 +7,6 @@ import '../Styles/ToolBar.styles.css'
 class ToolBar extends React.Component {
 
     render() {
-        console.log('tootlbar render')
         return (
             <header className = 'toolbar'>
                 <div className = 'logo left'>

@@ -4,6 +4,7 @@ import ProductGrid from './ProductGrid'
 import '../Styles/Page.styles.css'
 import Card from './Card'
 import { LOGO_BIG } from '../Constants/Paths'
+import { DEMO_TEXT } from '../Constants/Identifiers'
 
 class Page extends React.Component {
 
@@ -20,14 +21,9 @@ class Page extends React.Component {
 
         // find the product in current state and 
         // update it with our newly recieved product state
-        console.log("I got called")
         let cart = this.state.cart
-
-        console.log('before', cart)
-
         let isUpdated = false;
         cart.forEach((cartProduct, i) => {
-            console.log(cartProduct.id, product.id)
             if (cartProduct.id === product.id) {
                 cart[i].count += product.count
 
@@ -41,7 +37,6 @@ class Page extends React.Component {
         if(!isUpdated)
             cart.push(product)
         
-        console.log('after', cart)
         this.setState({
             cart: cart
         })
@@ -58,14 +53,14 @@ class Page extends React.Component {
                         <div className="title-wraper">
                             <div className="brand">
                                 <div className="logo">
-                                    <img src={LOGO_BIG} alt=""/>
+                                    <img src={ LOGO_BIG } alt=""/>
                                 </div>
                                 <div className="text">
                                     bazinga
                                 </div>
                             </div>
                             <div className="desc-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ad rem aliquam, ipsum minus impedit soluta qui voluptate est id reprehenderit repellendus cupiditate ut! Non eligendi ex nam architecto voluptate.
+                                { DEMO_TEXT }
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Cookies from 'universal-cookie'
-import { GET_CART } from './Constants/Endpoints'
 import Loader from './Components/Loader'
 import Page from './Components/Page'
 import { COOKIE_EXP_MINUTES } from './Constants/Identifiers'
@@ -48,7 +47,6 @@ class App extends React.Component {
       .then((result) => {
 
         // make call to get saved cart(if any)
-        console.log(GET_CART.replace('{cartID}', this.state.cartID));
         fetchCart(this.state.cartID) 
           .then(res => res.json())
           .then((cart) => {
@@ -73,7 +71,6 @@ class App extends React.Component {
                 if(cartProduct.id === product.id) {
                   result[i].inCart = true
                   result[i].count = cartProduct.count
-                  console.log(result[i].count)
                 }
               })
             })

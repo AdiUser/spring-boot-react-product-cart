@@ -80,6 +80,7 @@ class Card extends React.Component {
                     }
                 }, (error) => {
                     // handle api crash
+                    console.log(error)
                 })
         }
         else {
@@ -90,7 +91,6 @@ class Card extends React.Component {
                     if (result.error)
                         alert(result.error)
                     else {
-                        console.log('deleted')
                         this.setState({
                             const: newCount
                         })
