@@ -33,4 +33,4 @@ POST /api/cart/remove/{cartID} - to remove product from the cart
 * Integrate a payment gateway 
 
  ## UI Demo
- ![Demo UI Image](https://github.com/AdiUser/spring-boot-react-product-cart/cart-client/public/ui-demo.png)
+ ![Demo UI Image](https://github.com/AdiUser/spring-boot-react-product-cart/blob/master/cart-client/public/ui-demo.png)
