@@ -1,6 +1,20 @@
 # spring-boot-react-product-cart
 Assignment Task - 1 Build Product Cart using Java 8, Spring Boot and React JS
 
+## Steps to deploy on localhost
+
+1. `git clone https://github.com/AdiUser/spring-boot-react-product-cart.git`
+2. `cd spring-boot-react-product-cart`
+3. import `cart` folder in Eclipse
+4. Eclipse/(any other java IDE) will automatically download all the required dependencies
+5. Launch the application as a Spring Boot Application
+6. `cd cart-client`
+7. `npm install`
+8. `npm start`
+9. Go to `http://localhost:3000` to visit the react project 
+10. Make sure the API server is running on port 8080, if not then you can change the API Endpoints in file 
+    `cart-client\src\Constants\Endpoints.js` a/c to you.
+
 ## Demo Data APIs
 This project uses `https://picsum.photos/v2/list?page=1&limit=20` to fetch the data.
 I'm showing images and author names in the UI with random prices (I have modified the data to add random prices)
